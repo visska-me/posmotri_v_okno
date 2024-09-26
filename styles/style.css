@@ -19,7 +19,7 @@ html {
   background-color: #1b1919;
   display: flex;
   justify-content: center;
-  align-content: center;
+  align-items: center;
   padding: 133px 30px;
 }
 
@@ -92,7 +92,6 @@ ol {
 .result__video-container {
   min-width: 711px;
   block-size: 386px;
-  /* margin-bottom: 13px; */
   position: relative;
 }
 
@@ -242,18 +241,20 @@ ol {
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
-  line-height: 91%;
+  line-height: 93%;
   text-transform: uppercase;
 }
 
 .content__accent { /* 4.2 */
   color: #545050;
+  line-height: 100%;
+
 }
 
 .content__list {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Отступы между карточками */
+  gap: 30px;
   height: 298px;
   overflow: auto;
   position: relative;

@@ -16,6 +16,9 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -35,4 +38,315 @@ fieldset {
 ul,
 ol {
   list-style: none;
+}
+
+.button {
+  border: 1px solid #fff;
+  font-family: inherit;
+  color: inherit;
+  font-weight: 700;
+  font-size: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.button:active {
+  background-color: #545050;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+
+
+.content { /* main */
+  display: flex;
+  inline-size: 1140px;
+  align-items: flex-end; /* Прижатие к низу */
+  gap: 30px; /* Отступы между основными блоками */
+}
+
+.result { /* 1 section in main */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.result__video-container {
+  min-width: 711px;
+  block-size: 386px;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.result__video {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover; /* Видео масштабируется, сохраняя пропорции */
+  object-position: center;
+}
+
+.search-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.search-form__fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: none; /* 5.1 Сбросьте border у fieldset. */
+}
+
+.search-form__fieldset-title {
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  width: fit-content; /* 5.2 Контейнер подгоняет ширину под внутренние элементы */
+}
+
+/* 6.1 Стили для лейбла, когда внутри него находится текстовое поле с focus-visible */
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__label:has(.search-form__textfield:focus-visible) {
+  outline: 1px solid #fff;
+}
+
+.search-form__label-text {
+  cursor: pointer;
+}
+
+.search-form__textfield {  /* 5.4 При вёрстке текстового поля обращайте внимание на управление размерами, границей, цветом текста, семейством шрифта, размером шрифта, фоном. Некоторые из этих свойств не наследуются. */
+  background-color: transparent;
+  min-width: 225px;
+  height: 27px;
+  border: none;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  appearance: none;
+  color: #ffff;
+  appearance: none; /* 5.6 Убирает дефолтные стили браузера */
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+
+/* 5.5 Обёртка .search-form__checkbox-list создана специально для того, чтобы выстроить чекбоксы в линию. */
+.search-form__checkbox-list {  
+  display: flex;
+  gap: 15px;
+}
+
+/* Скрываем стандартный чекбокс */
+.search-form__checkbox {
+  display: none;
+}
+
+.search-form__pseudo-checkbox {
+  position: relative;
+  width: 19px;
+  height: 19px;
+  border: 1px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  cursor: pointer;
+}
+
+.search-form__checkbox-list > .search-form__label:hover {
+  text-decoration-line: underline;
+}
+
+.search-form__label:focus {
+  outline: none;
+  border: 1px solid #fff;
+}
+
+.search-form__label-text {
+  appearance: none;
+}
+
+/* 6.2 На макете при нажатии чекбокса внутри появляется квадрат. Он чуть меньше чекбокса. Мы предлагаем вам реализовать его псевдоэлементом для .search-form__pseudo-checkbox. */
+.search-form__checkbox:checked + .search-form__pseudo-checkbox:after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 15px;
+  height: 15px;
+  background-color: #fff;
+}
+
+.search-form__submit-button {
+  align-self: flex-end;
+  min-inline-size: 194px;
+  min-block-size: 34px;
+  cursor: pointer;
+}
+
+.search-form__submit-button:focus {
+  outline: none;
+}
+
+.search-form__submit-button:focus-visible {
+  border: 1px solid #fff;
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.content__details { /* 2 section in main */
+  display: flex;
+  flex-direction: column;
+  gap: 26px; /* Отступы между заголовком и карточками */
+  flex-grow: 1;
+  min-height: 100%;
+  justify-content: end;
+  max-width: 399px;
+}
+
+.title { /* 4.2 Оформить элемент .title и вложенный в него .content__accent. */
+  font-family: 'Oswald', sans-serif;
+  font-size: 75px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 94%;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-top: 133px;
+}
+
+.content__accent { /* 4.2 */
+  color: #545050;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Отступы между карточками */
+  height: 298px;
+  overflow: auto;
+  position: relative;
+  padding: 2px;
+}
+
+
+/* .square */
+
+
+
+.content__list-item {
+  width: 100%;
+}
+
+.content__list-item:not(:last-of-type) {
+  margin-block-end: 30px; /* Создать вертикальные отступы между элементами .content__list-item (у всех, кроме последнего). */
+}
+
+.content__card-link { /* 4.3 Убрать дефолтное подчёркивание и заменить цвет текста у ссылки .content__card-link. */
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:active {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.content__video-card {
+  display: flex;
+  align-items: flex-start; /* 2.4 Прижимает элементы к началу по вертикальной оси (если контейнер имеет высоту) */
+  justify-content: flex-start; /* 2.4 Прижимает элементы к началу по горизонтальной оси */
+  justify-content: space-between; /* 2.6 */
+}
+
+.content__video-card-description-container {
+  flex-grow: 1; /* 2.6 Заставляет контейнер расти и занимать всё оставшееся пространство */
+  display: flex;
+  flex-direction: column;
+}
+
+.content__video-card-title { /* 4.4 Оформить текст .content__video-card-title. */
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 100%;
+  text-transform: uppercase;
+}
+
+.content__video-card-description { /* 4.5 И присмотреться к высоте линии в .content__video-card-description.
+  */
+  font-weight: 400;
+  line-height: 90%;
+  margin-top: 6px;
+}
+
+.content__video-card-thumbnail { /* 2.5 Задать размеры .content__video-card-thumbnail и замостить в них изображение. */
+  width: 194px; /* задают фиксированные размеры для элемента */
+  height: 103px;
+  margin: 2px;
+  object-fit: cover; /* заставляет изображение заполнить контейнер целиком, обрезая его по краям, если соотношение сторон не совпадает с размерами контейнера. */
+}
+
+
+.more-button {
+  padding: 6px;
+  width: 399px;
+  cursor: pointer;
 }

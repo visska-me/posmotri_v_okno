@@ -92,7 +92,7 @@ ol {
 .result__video-container {
   min-width: 711px;
   block-size: 386px;
-  margin-bottom: 13px;
+  /* margin-bottom: 13px; */
   position: relative;
 }
 

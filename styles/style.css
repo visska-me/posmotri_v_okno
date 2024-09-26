@@ -15,10 +15,12 @@ html {
   color: #fff;
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
+  font-weight: 400;
   background-color: #1b1919;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-content: center;
+  padding: 133px 30px;
 }
 
 h1,
@@ -90,7 +92,7 @@ ol {
 .result__video-container {
   min-width: 711px;
   block-size: 386px;
-  margin-bottom: 16px;
+  margin-bottom: 13px;
   position: relative;
 }
 
@@ -122,7 +124,6 @@ ol {
   font-weight: 400;
   line-height: normal;
   color: #fff;
-  margin-bottom: 6px;
 }
 
 .search-form__label {
@@ -241,10 +242,8 @@ ol {
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
-  line-height: 94%;
+  line-height: 91%;
   text-transform: uppercase;
-  margin-bottom: 20px;
-  margin-top: 133px;
 }
 
 .content__accent { /* 4.2 */
@@ -263,10 +262,6 @@ ol {
 
 .content__list-item {
   width: 100%;
-}
-
-.content__list-item:not(:last-of-type) {
-  margin-block-end: 30px; /* Создать вертикальные отступы между элементами .content__list-item (у всех, кроме последнего). */
 }
 
 .content__card-link { /* 4.3 Убрать дефолтное подчёркивание и заменить цвет текста у ссылки .content__card-link. */
@@ -336,5 +331,6 @@ ol {
 .more-button {
   padding: 6px;
   width: 399px;
+  height: 34px;
   cursor: pointer;
 }

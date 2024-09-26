@@ -74,8 +74,6 @@ ol {
   white-space: nowrap;
 }
 
-
-
 .content { /* main */
   display: flex;
   inline-size: 1140px;
@@ -168,7 +166,6 @@ ol {
   color: rgba(255, 255, 255, 0.7);
 }
 
-
 /* 5.5 Обёртка .search-form__checkbox-list создана специально для того, чтобы выстроить чекбоксы в линию. */
 .search-form__checkbox-list {  
   display: flex;
@@ -181,7 +178,6 @@ ol {
 }
 
 .search-form__pseudo-checkbox {
-  position: relative;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
@@ -207,9 +203,7 @@ ol {
 /* 6.2 На макете при нажатии чекбокса внутри появляется квадрат. Он чуть меньше чекбокса. Мы предлагаем вам реализовать его псевдоэлементом для .search-form__pseudo-checkbox. */
 .search-form__checkbox:checked + .search-form__pseudo-checkbox:after {
   content: "";
-  position: absolute;
-  top: 1px;
-  left: 1px;
+  display: block;
   width: 15px;
   height: 15px;
   background-color: #fff;
@@ -266,11 +260,6 @@ ol {
   position: relative;
   padding: 2px;
 }
-
-
-/* .square */
-
-
 
 .content__list-item {
   width: 100%;
@@ -343,7 +332,6 @@ ol {
   margin: 2px;
   object-fit: cover; /* заставляет изображение заполнить контейнер целиком, обрезая его по краям, если соотношение сторон не совпадает с размерами контейнера. */
 }
-
 
 .more-button {
   padding: 6px;

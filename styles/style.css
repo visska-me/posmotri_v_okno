@@ -91,13 +91,13 @@ ol {
 
 .result__video-container {
   min-width: 711px;
-  block-size: 386px;
+  height: 386px;
   position: relative;
 }
 
 .result__video {
-  min-width: 100%;
-  min-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover; /* Видео масштабируется, сохраняя пропорции */
   object-position: center;
 }
@@ -172,11 +172,6 @@ ol {
   gap: 15px;
 }
 
-/* Скрываем стандартный чекбокс */
-.search-form__checkbox {
-  display: none;
-}
-
 .search-form__pseudo-checkbox {
   width: 19px;
   height: 19px;
@@ -191,9 +186,9 @@ ol {
   text-decoration-line: underline;
 }
 
-.search-form__label:focus {
-  outline: none;
-  border: 1px solid #fff;
+.search-form__label:has(.search-form__checkbox):has(:focus-visible) {  
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .search-form__label-text {
@@ -203,17 +198,17 @@ ol {
 /* 6.2 На макете при нажатии чекбокса внутри появляется квадрат. Он чуть меньше чекбокса. Мы предлагаем вам реализовать его псевдоэлементом для .search-form__pseudo-checkbox. */
 .search-form__checkbox:checked + .search-form__pseudo-checkbox:after {
   content: "";
-  display: block;
-  width: 15px;
-  height: 15px;
+  width: 19px;
+  height: 19px;
   background-color: #fff;
+  outline: 1px solid #1B1919;
+  outline-offset: -2px;
 }
 
 .search-form__submit-button {
   align-self: flex-end;
   min-inline-size: 194px;
   min-block-size: 34px;
-  cursor: pointer;
 }
 
 .search-form__submit-button:focus {
@@ -233,7 +228,6 @@ ol {
   flex-grow: 1;
   min-height: 100%;
   justify-content: end;
-  max-width: 399px;
 }
 
 .title { /* 4.2 Оформить элемент .title и вложенный в него .content__accent. */
@@ -248,13 +242,11 @@ ol {
 .content__accent { /* 4.2 */
   color: #545050;
   line-height: 100%;
-
 }
 
 .content__list {
   display: flex;
   flex-direction: column;
-  gap: 30px;
   height: 298px;
   overflow: auto;
   position: relative;
@@ -263,6 +255,11 @@ ol {
 
 .content__list-item {
   width: 100%;
+  margin-bottom: 30px; /* Вместо gap */
+}
+
+.content__list-item:last-child {
+  margin-bottom: 0;
 }
 
 .content__card-link { /* 4.3 Убрать дефолтное подчёркивание и заменить цвет текста у ссылки .content__card-link. */
@@ -273,11 +270,7 @@ ol {
   cursor: pointer;
 }
 
-.content__card-link_current {
-  background-color: #545050;
-}
-
-.content__card-link:active {
+.content__card-link_current, .content__card-link:active {
   background-color: #545050;
 }
 
@@ -313,6 +306,9 @@ ol {
   font-size: 30px;
   line-height: 100%;
   text-transform: uppercase;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .content__video-card-description { /* 4.5 И присмотреться к высоте линии в .content__video-card-description.
@@ -332,6 +328,5 @@ ol {
 .more-button {
   padding: 6px;
   width: 399px;
-  height: 34px;
-  cursor: pointer;
+  min-height: 34px;
 }
